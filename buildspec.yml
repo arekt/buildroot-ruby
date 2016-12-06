@@ -1,0 +1,13 @@
+version: 0.1
+
+phases:
+  install:
+    commands:
+      - apt-get -y update && apt-get install -y kpartx libncurses5-dev g++ gcc libpcre3-dev git libssl-dev wget python bc dosfstools debootstrap qemu-user-static binfmt-support sbuild git proot binfmt-support qemu qemu-user-static cvs ruby libgmp3-dev xdelta3 rsync
+      - locale-gen en_US.UTF-8
+
+  build:
+    commands:
+      - make distclean
+      - make pc_x86_64_bios_defconfig
+      - make
